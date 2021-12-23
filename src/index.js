@@ -6,9 +6,9 @@ import PixaBayApi from './api/pixabay';
 const apiService = new PixaBayApi();
 const loadMoreButton = document.querySelector(".load-more");
 const gallery = document.querySelector(".gallery");
-
-
-
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+const lightbox = new SimpleLightbox('.gallery');
 const renderCards = (array, container) => {
    array.forEach(({
       webformatURL,
@@ -20,7 +20,7 @@ const renderCards = (array, container) => {
       downloads
    }) => {
       container.insertAdjacentHTML("beforeend",
-         `<div class="photo-card">
+         `<a href=${webformatURL}><div class="photo-card">
                        <img src=${largeImageURL} alt=${tags} loading="lazy" width="300"/>
                         <div class="info">
                           <p class="info-item">
@@ -36,7 +36,7 @@ const renderCards = (array, container) => {
                             <b>Downloads:</br><span>${downloads}</span></b>
                           </p>
                         </div>
-                      </div> `)
+                      </div></a>`)
    }
    )
 }
