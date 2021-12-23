@@ -17,8 +17,8 @@ const renderCards = (array, container) => {
       downloads
    }) => {
       container.insertAdjacentHTML("beforeend",
-         `<a href=${webformatURL}><div class="photo-card">
-                       <img src=${largeImageURL} alt=${tags} loading="lazy" width="300"/>
+         `<a href=${largeImageURL}><div class="photo-card">
+                       <img src=${webformatURL} alt=${tags} loading="lazy" width="300"/>
                         <div class="info">
                           <p class="info-item">
                             <b>Likes:</br><span>${likes}</span></b>
