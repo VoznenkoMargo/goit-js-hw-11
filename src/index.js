@@ -6,9 +6,6 @@ import PixaBayApi from './api/pixabay';
 const apiService = new PixaBayApi();
 const loadMoreButton = document.querySelector(".load-more");
 const gallery = document.querySelector(".gallery");
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
-const lightbox = new SimpleLightbox('.gallery');
 const renderCards = (array, container) => {
    array.forEach(({
       webformatURL,
