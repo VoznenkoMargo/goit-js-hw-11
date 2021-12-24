@@ -4,7 +4,6 @@ export default class PixaBayApi {
    constructor() {
       this.searchQuery = "";
       this.page = 1;
-      this.imgCount = 0;
       this.perPage = 40;
    }
    async getImages() {
@@ -18,9 +17,7 @@ export default class PixaBayApi {
    incrementPage() {
       this.page += 1;
    }
-   resetCount() {
-      this.imgCount = 0;
-   }
+
    resetperPage() {
       this.perPage = 20;
    }
