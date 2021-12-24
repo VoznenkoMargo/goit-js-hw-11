@@ -42,14 +42,7 @@ const renderCards = (array, container) => {
    )
    lightbox.refresh();
 }
-const onScroll = () => {
-   window.addEventListener("scroll", () => {
-      if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-         Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
 
-      }
-   })
-}
 const searchRequest = async (e) => {
    e.preventDefault();
    apiService.query = e.currentTarget.elements.searchQuery.value.trim();
@@ -69,7 +62,8 @@ const searchRequest = async (e) => {
          const totalPagesPB = Math.ceil(totalHits / apiService.perPage);
          if (apiService.page >= totalPagesPB) {
             loadMoreButton.classList.remove("active");
-            onScroll();
+            Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
+
          }
       }
    });
@@ -84,7 +78,7 @@ const onLoadMore = () => {
       }
       if (apiService.page >= totalPagesPB) {
          loadMoreButton.classList.remove("active");
-         onScroll();
+         Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
       }
 
    }).catch(e => {
