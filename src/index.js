@@ -67,9 +67,6 @@ const searchRequest = async (e) => {
          renderCards(hits, gallery);
          loadMoreButton.classList.add("active");
          const totalPagesPB = Math.ceil(totalHits / apiService.perPage);
-         if (totalPagesPB > apiService.page) {
-            renderCards(hits, gallery);
-         }
          if (apiService.page >= totalPagesPB) {
             loadMoreButton.classList.remove("active");
             onScroll();
@@ -82,8 +79,6 @@ const searchRequest = async (e) => {
 const onLoadMore = () => {
    apiService.getImages().then(({ data: { hits, totalHits } }) => {
       const totalPagesPB = Math.ceil(totalHits / apiService.perPage);
-      console.log(totalPagesPB);
-      console.log(apiService.page);
       if (totalPagesPB > apiService.page) {
          renderCards(hits, gallery);
       }
